@@ -1,0 +1,9 @@
+---
+# tasks file for dovecot
+- include_tasks: install.yml
+- include_tasks: configure.yml
+- include_tasks: ssl.yml
+- include_tasks: users.yml
+  when: do_ldap
+- include_tasks: ldap.yml
+  when: do_ldap

@@ -1,0 +1,7 @@
+---
+# vars file for dovecot
+dovecot_apt_pkgs:
+  - dovecot-imapd
+  - dovecot-ldap
+  - dovecot-mysql
+  - dovecot-gssapi

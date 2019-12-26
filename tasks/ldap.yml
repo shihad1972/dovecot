@@ -1,0 +1,32 @@
+---
+
+- name: Enable LDAP authentication
+  become: true
+  copy:
+    src: files/10-auth.conf-ldap
+    dest: "{{ auth_config }}"
+    owner: root
+    group: root
+    mode: 0640
+  notify: restart dovecot
+
+- name: Copy over ldap setup configuration
+  become: true
+  copy:
+    src: auth-ldap-conf.ext
+    dest: "{{ dove_ldap }}"
+    owner: root
+    group: root
+    mode: 0640
+    backup: yes
+  notify: restart dovecot
+
+- name: Create ldap detailed configuration from template
+  become: true
+  template:
+    src: dovecot-ldap.conf.ext.j2
+    dest: "/etc/dovecot/dovecot-ldap.conf.ext"
+    owner: root
+    group: root
+    mode: 0640
+  notify: restart dovecot

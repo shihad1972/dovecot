@@ -1,0 +1,11 @@
+---
+# defaults file for dovecot
+dovecot_conf: /etc/dovecot
+dovecot_keydir: "{{ dovecot_conf }}/private"
+dovecot_crtdir: "{{ dovecot_conf }}/certs"
+homebase: /var/spool/dovecot/users
+do_ldap: false
+dovecot_conf_d: /etc/dovecot/conf.d
+auth_config: "{{ dovecot_conf_d }}/10-auth.conf"
+dove_ldap: "{{ dovecot_conf_d }}/auth-ldap.conf.ext"
+dove_ldap_conf: "{{ dovecot_conf_d }}/dovecot-ldap.conf.ext"

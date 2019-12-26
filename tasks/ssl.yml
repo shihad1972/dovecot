@@ -1,0 +1,52 @@
+---
+
+- name: Create SSL key directory for dovecot
+  become: true
+  file:
+    path: "{{ dovecot_keydir }}"
+    group: root
+    owner: root
+    mode: "0700"
+    state: directory
+
+- name: Create SSL certificate directory for dovecot
+  become: true
+  file:
+    path: "{{ dovecot_crtdir }}"
+    group: root
+    owner: root
+    mode: "0755"
+    state: directory
+
+- name: Copy private key
+  become: true
+  copy:
+    backup: yes
+    src: "{{ ansible_fqdn }}.pem"
+    dest: "{{ dovecot_keydir }}/{{ ansible_fqdn }}.pem"
+    mode: "0600"
+    owner: root
+    group: root
+  notify: restart dovecot
+
+- name: Copy public key
+  become: true
+  copy:
+    backup: yes
+    src: "{{ ansible_fqdn }}.crt"
+    dest: "{{ dovecot_crtdir }}/{{ ansible_fqdn }}.crt"
+    mode: "0644"
+    owner: root
+    group: root
+  notify: restart dovecot
+
+- name: Create basic SSL config for dovecot
+  become: true
+  template:
+    src: ssl.conf.j2
+    dest: "{{ dovecot_conf }}/conf.d/10-ssl.conf"
+    mode: 0644
+    owner: root
+    group: root
+    backup: yes
+  notify: restart dovecot

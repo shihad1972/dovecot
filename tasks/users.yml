@@ -1,0 +1,20 @@
+---
+
+- name: Create base directory for dovecot users
+  become: true
+  file:
+    state: directory
+    path: "{{ homebase }}"
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Create user directories
+  become: true
+  file:
+    state: directory
+    path: "{{ homebase }}/{{ item.name }}"
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+    mode: 0700
+  with_items: "{{ ldap_users }}"

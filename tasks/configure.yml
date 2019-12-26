@@ -1,0 +1,32 @@
+---
+
+- name: Enable SASL authentication for postfix
+  become: true
+  copy:
+    src: postfix-client.conf
+    dest: "{{ dovecot_conf_d }}/postfix-client.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart dovecot
+
+- name: Copy over authentication configuration
+  become: true
+  copy:
+    src: 10-auth.conf
+    dest: "{{ dovecot_conf_d }}/10-auth.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart dovecot
+  when: not do_ldap
+
+- name: Copy over mail location configuration
+  become: true
+  template:
+    src: 10-mail.conf.j2
+    dest: "{{ dovecot_conf_d }}/10-mail.conf"
+    owner: root
+    group: root
+    mode: 0640
+  notify: restart dovecot
