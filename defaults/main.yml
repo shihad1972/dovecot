@@ -3,7 +3,7 @@
 dovecot_conf: /etc/dovecot
 dovecot_keydir: "{{ dovecot_conf }}/private"
 dovecot_crtdir: "{{ dovecot_conf }}/certs"
-homebase: /var/spool/dovecot/users
+homebase: /home
 do_ldap: false
 do_postfix: true
 dovecot_conf_d: "{{ dovecot_conf }}/conf.d"
