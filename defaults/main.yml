@@ -3,6 +3,7 @@
 dovecot_conf: /etc/dovecot
 dovecot_keydir: "{{ dovecot_conf }}/private"
 dovecot_crtdir: "{{ dovecot_conf }}/certs"
+dovecot_fqdn: "{{ ansible_fqdn }}"
 homebase: /home
 do_ldap: false
 do_postfix: true

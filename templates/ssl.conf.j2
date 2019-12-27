@@ -2,7 +2,7 @@
 # Basic SSL config for dovecot
 #
 ssl = yes
-ssl_cert = <{{ dovecot_crtdir }}/{{ ansible_fqdn }}.crt
-ssl_key = <{{ dovecot_keydir }}/{{ ansible_fqdn }}.pem
+ssl_cert = <{{ dovecot_crtdir }}/{{ dovecot_fqdn }}.crt
+ssl_key = <{{ dovecot_keydir }}/{{ dovecot_fqdn }}.pem
 ssl_protocols = !SSLv3 !TLSv1
 ssl_cipher_list = ALL:HIGH:!SSLv2:!MEDIUM:!LOW:!EXP:!RC4:!MD5:!aNULL:@STRENGTH

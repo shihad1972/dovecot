@@ -12,6 +12,7 @@ Role Variables
 --------------
 
   - enable_dovecot_service: Enable the dovecot service on boot. Defaults to true
+  - dovecot_fqdn: FQDN of the dovecot server / service. Set this to the CN of your SSL certificate.
   - do_ldap: Boolean. Enable ldap configuration
   - do_postfix: Boolean. Enable postfix SASL authentication
 
@@ -37,4 +38,4 @@ GPL
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Iain M Conochie <iain@thargoid.co.uk>

@@ -1,8 +1,5 @@
-uris = ldap://{{ ldap_hostname | default(ansible_fqdn) }}
-#dn = cn=mailAccountReader,ou=Manager,dc=example,dc=com
-#dnpass = <dn bind password>
+uris = ldap://{{ dovecot_fqdn }}
 tls = yes
-#tls_ca_cert_file = /etc/ldap/tls/CA.pem
 tls_require_cert = hard
 debug_level = 0
 auth_bind = yes

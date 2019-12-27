@@ -22,8 +22,8 @@
   become: true
   copy:
     backup: yes
-    src: "{{ ansible_fqdn }}.pem"
-    dest: "{{ dovecot_keydir }}/{{ ansible_fqdn }}.pem"
+    src: "{{ dovecot_fqdn }}.pem"
+    dest: "{{ dovecot_keydir }}/{{ dovecot_fqdn }}.pem"
     mode: "0600"
     owner: root
     group: root
@@ -33,8 +33,8 @@
   become: true
   copy:
     backup: yes
-    src: "{{ ansible_fqdn }}.crt"
-    dest: "{{ dovecot_crtdir }}/{{ ansible_fqdn }}.crt"
+    src: "{{ dovecot_fqdn }}.crt"
+    dest: "{{ dovecot_crtdir }}/{{ dovecot_fqdn }}.crt"
     mode: "0644"
     owner: root
     group: root
