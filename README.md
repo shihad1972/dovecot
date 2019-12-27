@@ -11,7 +11,9 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 Role Variables
 --------------
 
+  - enable_dovecot_service: Enable the dovecot service on boot. Defaults to true
   - do_ldap: Boolean. Enable ldap configuration
+  - do_postfix: Boolean. Enable postfix SASL authentication
 
 Dependencies
 ------------

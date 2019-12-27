@@ -44,7 +44,7 @@
   become: true
   template:
     src: ssl.conf.j2
-    dest: "{{ dovecot_conf }}/conf.d/10-ssl.conf"
+    dest: "{{ dovecot_conf_d }}/10-ssl.conf"
     mode: 0644
     owner: root
     group: root

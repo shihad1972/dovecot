@@ -8,9 +8,9 @@
   with_items: "{{ dovecot_apt_pkgs }}"
   when: '"apt" in ansible_pkg_mgr'
 
-- name: Enable dovecot service
+- name: Enable or disable the dovecot service
   become: true
   service:
     name: dovecot
-    enabled: true
+    enabled: "{{ enable_dovecot_service | default('true') }}"
     state: started
