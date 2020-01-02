@@ -6,13 +6,16 @@ Install and configure a dovecot installation
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+There are no pre-requisites for this role, save if you wish to have SSL configuration. Then you
+ must have an SSL key pair. These files should be located in the files/ directory in the same
+ directory as your playbooks.
 
 Role Variables
 --------------
 
   - enable_dovecot_service: Enable the dovecot service on boot. Defaults to true
   - dovecot_fqdn: FQDN of the dovecot server / service. Set this to the CN of your SSL certificate.
+  - do_ssl: Boolean. Enable SSL configuration. Requires SSL cert and key files. Defaults to true
   - do_ldap: Boolean. Enable ldap configuration
   - do_postfix: Boolean. Enable postfix SASL authentication
 
@@ -28,7 +31,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: dovecot, dovecot_fqdn: my.host.name.com }
 
 License
 -------
