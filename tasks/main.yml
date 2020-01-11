@@ -3,8 +3,8 @@
 - include_tasks: install.yml
 - include_tasks: configure.yml
 - include_tasks: ssl.yml
-  when: do_ssl
+  when: do_ssl|bool
 - include_tasks: users.yml
-  when: do_ldap
+  when: do_ldap|bool
 - include_tasks: ldap.yml
-  when: do_ldap
+  when: do_ldap|bool
