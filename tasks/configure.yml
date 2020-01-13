@@ -9,7 +9,7 @@
     group: root
     mode: 0644
   notify: restart dovecot
-  when: do_postfix
+  when: do_postfix|bool
 
 - name: Copy over authentication configuration
   become: true
@@ -20,7 +20,7 @@
     group: root
     mode: 0644
   notify: restart dovecot
-  when: not do_ldap
+  when: not do_ldap|bool
 
 - name: Copy over mail location configuration
   become: true

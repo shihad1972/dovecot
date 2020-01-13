@@ -3,13 +3,13 @@
 dovecot_conf: /etc/dovecot
 dovecot_keydir: "{{ dovecot_conf }}/private"
 dovecot_crtdir: "{{ dovecot_conf }}/certs"
-dovecot_fqdn: "{{ ansible_fqdn }}"
+my_fqdn: "{{ ansible_fqdn }}"
 homebase: /home
 do_ldap: false
 do_postfix: true
 do_ssl: true
-dovecot_cert_file: "{{ dovecot_fqdn }}.crt"
-dovecot_key_file: "{{ dovecot_fqdn }}.pem"
+dovecot_cert_file: "{{ my_fqdn }}.crt"
+dovecot_key_file: "{{ my_fqdn }}.pem"
 dovecot_conf_d: "{{ dovecot_conf }}/conf.d"
 auth_config: "{{ dovecot_conf_d }}/10-auth.conf"
 dove_ldap: "{{ dovecot_conf_d }}/auth-ldap.conf.ext"

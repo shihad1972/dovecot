@@ -3,9 +3,8 @@
 - name: Install dovecot packages
   become: true
   apt:
-    name: "{{ item }}"
+    name: "{{ dovecot_apt_pkgs }}"
     state: present
-  with_items: "{{ dovecot_apt_pkgs }}"
   when: '"apt" in ansible_pkg_mgr'
 
 - name: Enable or disable the dovecot service

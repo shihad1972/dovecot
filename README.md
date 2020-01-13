@@ -14,7 +14,7 @@ Role Variables
 --------------
 
   - enable_dovecot_service: Enable the dovecot service on boot. Defaults to true
-  - dovecot_fqdn: FQDN of the dovecot server / service. Set this to the CN of your SSL certificate.
+  - my_fqdn: FQDN of the dovecot server / service. Set this to the CN of your SSL certificate.
   - do_ssl: Boolean. Enable SSL configuration. Requires SSL cert and key files. Defaults to true
   - do_ldap: Boolean. Enable ldap configuration
   - ldap_fqdn: Hostname of the ldap server.
