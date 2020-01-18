@@ -18,6 +18,7 @@ Role Variables
   - do_ssl: Boolean. Enable SSL configuration. Requires SSL cert and key files. Defaults to true
   - do_ldap: Boolean. Enable ldap configuration
     - ldap_host_name: Hostname of the ldap server.
+    - do_ldap_users: Create home directories for ldap users
     - dovecot_anonymous_bind: Set to true if you directory allows anonymous binds.
         Set the below variables if your directory does not accept anonymous binds.
     - dovecot_bind_dn: Full DN of the dovecot user

@@ -5,6 +5,6 @@
 - include_tasks: ssl.yml
   when: do_ssl|bool
 - include_tasks: users.yml
-  when: do_ldap|bool
+  when: do_ldap_users|bool
 - include_tasks: ldap.yml
   when: do_ldap|bool
