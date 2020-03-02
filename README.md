@@ -17,6 +17,12 @@ Role Variables
   - my_fqdn: FQDN of the dovecot server / service. Set this to the CN of your SSL certificate.
   - do_ssl: Boolean. Enable SSL configuration. Requires SSL cert and key files. Defaults to true
   - do_ldap: Boolean. Enable ldap configuration
+    - ldap_host_name: Hostname of the ldap server.
+    - do_ldap_users: Create home directories for ldap users
+    - dovecot_anonymous_bind: Set to true if you directory allows anonymous binds.
+        Set the below variables if your directory does not accept anonymous binds.
+    - dovecot_bind_dn: Full DN of the dovecot user
+    - dovecot_bind_pass: Password for the dovecot user.
   - do_postfix: Boolean. Enable postfix SASL authentication
 
 Dependencies
@@ -31,7 +37,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: dovecot, dovecot_fqdn: my.host.name.com }
+         - { role: dovecot, my_fqdn: my.host.name.com }
 
 License
 -------
