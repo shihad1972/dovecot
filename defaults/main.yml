@@ -6,6 +6,7 @@ dovecot_crtdir: "{{ dovecot_conf }}/certs"
 my_fqdn: "{{ ansible_fqdn }}"
 homebase: /home
 do_ldap: false
+do_ldap_ssl: true
 do_postfix: true
 do_ssl: true
 do_ldap_users: true
