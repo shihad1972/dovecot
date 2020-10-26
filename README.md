@@ -24,6 +24,7 @@ Role Variables
     - dovecot_bind_dn: Full DN of the dovecot user
     - dovecot_bind_pass: Password for the dovecot user.
   - do_postfix: Boolean. Enable postfix SASL authentication
+  - homebase: Base home directory for users. Defaults to /home
 
 Dependencies
 ------------
