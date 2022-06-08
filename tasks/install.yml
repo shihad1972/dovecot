@@ -3,6 +3,7 @@
 - name: Install dovecot packages
   become: true
   apt:
+    update_cache: true
     name: "{{ dovecot_apt_pkgs }}"
     state: present
   when: '"apt" in ansible_pkg_mgr'
