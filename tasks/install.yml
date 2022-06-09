@@ -6,7 +6,6 @@
     update_cache: true
     name: "{{ dovecot_apt_pkgs }}"
     state: present
-  when: '"apt" in ansible_pkg_mgr'
 
 - name: Enable or disable the dovecot service
   become: true
