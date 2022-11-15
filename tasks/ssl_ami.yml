@@ -1,0 +1,29 @@
+---
+
+- name: Create SSL key directory for dovecot
+  become: true
+  file:
+    path: "{{ dovecot_keydir }}"
+    group: root
+    owner: root
+    mode: "0700"
+    state: directory
+
+- name: Create SSL certificate directory for dovecot
+  become: true
+  file:
+    path: "{{ dovecot_crtdir }}"
+    group: root
+    owner: root
+    mode: "0755"
+    state: directory
+
+- name: Create basic SSL config for dovecot
+  become: true
+  template:
+    src: ssl.conf.j2
+    dest: "{{ dovecot_conf_d }}/10-ssl.conf"
+    mode: 0644
+    owner: root
+    group: root
+    backup: yes
