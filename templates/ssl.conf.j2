@@ -4,7 +4,7 @@
 ssl = yes
 ssl_cert = <{{ dovecot_crtdir }}/{{ dovecot_cert_file }}
 ssl_key = <{{ dovecot_keydir }}/{{ dovecot_key_file }}
-{% if ansible_distribution_major_version >= 10|int %}
+{% if ansible_distribution_major_version|int >= 10 %}
 ssl_min_protocol = TLSv1.2
 {% else %}
 ssl_protocols = !SSLv3 !TLSv1
