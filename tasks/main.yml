@@ -3,9 +3,9 @@
 - include_tasks: install.yml
 - include_tasks: configure.yml
 - include_tasks: ssl.yml
-  when: (do_ssl|bool) and (! do_ssl_ami|bool)
+  when: (do_ssl|bool) and (not do_ssl_ami)
 - include_tasks: ssl_ami.yml
-  when: (! do_ssl|bool) and (do_ssl_ami|bool)
+  when: (not do_ssl) and (do_ssl_ami|bool)
 - include_tasks: users.yml
   when: do_ldap_users|bool
 - include_tasks: ldap.yml
