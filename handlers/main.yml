@@ -6,3 +6,4 @@
   service:
     name: dovecot
     state: restarted
+  when: enable_dovecot_service|bool

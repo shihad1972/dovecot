@@ -17,3 +17,4 @@ auth_config: "{{ dovecot_conf_d }}/10-auth.conf"
 dove_ldap: "{{ dovecot_conf_d }}/auth-ldap.conf.ext"
 dove_ldap_conf: "{{ dovecot_conf_d }}/dovecot-ldap.conf.ext"
 dovecot_anonymous_bind: false
+enable_dovecot_service: true
